@@ -1,6 +1,9 @@
-import { Text, View } from "react-native";
+import { Button, Text, View } from "react-native";
+import { useRouter } from "expo-router";
+
 
 export default function Index() {
+  const route = useRouter()
   return (
     <View
       style={{
@@ -8,8 +11,14 @@ export default function Index() {
         justifyContent: "center",
         alignItems: "center",
       }}
+      className="bg-gray-50"
     >
-      <Text>this is  my first react native app</Text>
+      <Text>Please click on the button below to navigate to the home screen</Text>
+      <Button 
+      title="home page" 
+      onPress={()=>route.replace('/HomeScreen')}
+      />
+
     </View>
   );
 }
