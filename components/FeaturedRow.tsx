@@ -1,17 +1,36 @@
 import { View, Text, ScrollView } from "react-native";
-import React from "react";
+import React ,{useEffect,useState}from "react";
 import { ArrowRightIcon } from "react-native-heroicons/outline";
 import RestaurantCard from "./RestaurantCard";
+import sanityClient from '@/sanity'
 
 const FeaturedRow = ({
   id,
   title,
   description,
 }: {
-  id: number;
+  id: string;
   title: string;
   description: string;
 }) => {
+ const[restaurants,setRestaurants]= useState<any[]>([])
+
+   useEffect(()=>{
+       sanityClient.fetch(`
+       *[_type == "featured" && _id == $id]{
+        ...,
+        restaurants[]->{
+          ...,
+          dishes[]->
+        }
+      }[0]`, 
+      { id })
+       .then(data => setRestaurants(data?.restaurants))
+       .catch(err =>console.log("error fetching ", err))
+   },[])
+
+
+
   return (
     <View>
       <View className="mt-4 flex-row items-center justify-between px-4">
@@ -28,18 +47,25 @@ const FeaturedRow = ({
         className="pt-4"
       >
         {/* restaurant cards */}
-        <RestaurantCard
-          id={123}
-          imgUrl="https://links.papareact.com/gn7"
-          title="Yo! Sushi"
-          rating={4.5}
-          genre="Japanese"
-          addresses="124 main St"
-          short_description="This is the test description"
-          dishes={[]}
-          long={20}
-          lat={0}
-        />
+
+        {
+         restaurants.length >0 && restaurants.map((restaurant,idx) =>(
+
+            <RestaurantCard
+              key={idx}
+              id={restaurant._id}
+              imgUrl={restaurant.image}
+              title={restaurant.name}
+              rating={restaurant.rating}
+              genre={restaurant.type?.name}
+              addresses={restaurant.address}
+              short_description={restaurant.short_description}
+              dishes={restaurant.dishes}
+              long={restaurant.long}
+              lat={restaurant.lat}
+            />
+          ))
+        }
       </ScrollView>
     </View>
   );
