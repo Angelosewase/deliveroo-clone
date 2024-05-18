@@ -27,7 +27,7 @@ const FeaturedRow = ({
       { id })
        .then(data => setRestaurants(data?.restaurants))
        .catch(err =>console.log("error fetching ", err))
-   },[])
+   },[id])
 
 
 

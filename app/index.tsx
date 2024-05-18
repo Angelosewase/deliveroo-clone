@@ -16,7 +16,7 @@ export default function Index() {
       <Text>Please click on the button below to navigate to the home screen</Text>
       <Button 
       title="home page" 
-      onPress={()=>route.replace('/HomeScreen')}
+      onPress={()=>route.replace('HomeScreen')}
       />
 
     </View>
