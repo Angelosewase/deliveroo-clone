@@ -10,6 +10,7 @@ import {
 } from "react-native-heroicons/outline";
 import { StarIcon } from "react-native-heroicons/solid";
 import DishRow from "@/components/DishRow";
+import BasketIcon from "@/components/BasketIcon";
 
 const RestaurantScreen = () => {
   const {
@@ -34,6 +35,8 @@ const RestaurantScreen = () => {
     });
   }, []);
   return (
+    <>
+    <BasketIcon />
     <ScrollView>
       <View className="relative">
         <Image
@@ -96,6 +99,7 @@ const RestaurantScreen = () => {
 
       </View>
     </ScrollView>
+    </>
   );
 };
 
