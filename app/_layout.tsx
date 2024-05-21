@@ -1,6 +1,7 @@
 import { Stack } from "expo-router";
 import { store } from "@/store";
 import { Provider } from "react-redux";
+import { SafeAreaFrameContext } from "react-native-safe-area-context";
 
 export default function RootLayout() {
   return (
@@ -17,6 +18,14 @@ export default function RootLayout() {
             animation:"slide_from_bottom"
           }}
         />
+        <Stack.Screen name="PreparingOrderScreen" options={{
+          headerShown:false,
+          presentation:"fullScreenModal",
+          animation:"slide_from_bottom"
+        }}/>
+        <Stack.Screen name="DeliveryScreen" options={{
+          headerShown:false
+        }} />
       </Stack>
     </Provider>
   );

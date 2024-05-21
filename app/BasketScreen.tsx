@@ -110,7 +110,7 @@ export default function BasketScreen() {
                 </Text>
             </View>
 
-            <TouchableOpacity className="rounded-lg bg-[#00CCBB] p-4">
+            <TouchableOpacity className="rounded-lg bg-[#00CCBB] p-4 " onPress={()=>navigation.navigate("PreparingOrderScreen")}>
                 <Text className="text-center text-white texl-xl font-bold">
                     Place order
                 </Text>
