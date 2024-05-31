@@ -1,11 +1,11 @@
 import {
   Text,
-  SafeAreaView,
   View,
   Image,
   TextInput,
   ScrollView,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import React, { useLayoutEffect,useEffect,useState } from "react";
 import { useNavigation } from "expo-router";
 import {
@@ -48,7 +48,7 @@ export default function HomeScreen() {
 
 
   return (
-    <SafeAreaView className="mt-10 mb-24">
+    <SafeAreaView className="mb-24" >
       {/* Header */}
       <View className="flex-row pb-3 items-center px-4 space-x-2  bg-white">
         <Image

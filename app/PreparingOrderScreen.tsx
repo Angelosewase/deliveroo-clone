@@ -28,7 +28,7 @@ const PreparingOrderScreen = () => {
       iterationCount={1}
       className='text-lg my-10 text-white font-bold text-center'
       >
-        Waiting for the restaurnant to accept the order
+        Waiting for the restaurant to accept the order
       </Animatable.Text>
 
       <Progress.Circle  size={60} indeterminate={true} color='white'/>

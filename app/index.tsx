@@ -13,9 +13,9 @@ export default function Index() {
       }}
       className="bg-gray-50"
     >
-      <Text>Please click on the button below to navigate to the home screen</Text>
+      <Text className="mb-4 text-xl">This is the my first react native project and I'm very exited to continue my mobile devlopment journey . Feel free to check out </Text>
       <Button 
-      title="home page" 
+      title="start" 
       onPress={()=>route.replace('HomeScreen')}
       />
 

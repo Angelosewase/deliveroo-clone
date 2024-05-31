@@ -7,7 +7,10 @@ export default function RootLayout() {
   return (
     <Provider store={store}>
       <Stack>
-        <Stack.Screen name="index" />
+        <Stack.Screen name="index"
+         options={{
+              headerShown:false
+        }}/>
         <Stack.Screen name="HomeScreen" />
         <Stack.Screen name="RestaurantScreen" />
         <Stack.Screen
